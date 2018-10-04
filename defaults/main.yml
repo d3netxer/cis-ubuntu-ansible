@@ -81,7 +81,9 @@ restrict_core_dumps: True
 
 # Section 05
 # Section 05 Level 2
-permit_root_login: no
+# Ansible is converting 'no' to 'false' automatically (https://github.com/ansible/ansible/issues/11905)
+# so I will comment out line below and hardcode no in Section 05, becuase Ubuntu 18.04 is not able to restart SSH with false as a value for permit_root_login
+#permit_root_login: no
 #sshd_allow_users: sshuser
 #sshd_allow_groups: sshusersallow
 sshd_allow_users: ubuntu root
